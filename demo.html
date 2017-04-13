@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo: Are You Sure? - a dirty forms jQuery Plugin</title>
+
+    <!-- 
+
+    We'll use an old version of jQuery to show we're backwards compatible. In 
+    production we recommend using a later version. e.g.
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    -->
+
+    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script src="js/jquery.are-you-sure.js"></script>
+    <script src="js/ays-beforeunload-shim.js"></script>
+    <script>
+
+      $(function() {
+
+        // Example 1 - ... in one line of code
+        $('#example-1-form').areYouSure();
+        });
+
+    </script>
+    <style type="text/css">
+      body {
+        font-family: myriad-pro-1, myriad-pro-2, 'Lucida Grande', 'Arial', sans-serif;
+        margin: 25px;
+      }
+
+      form {
+        width: 350px;
+        border: 1px solid #AA5303;
+        padding: 10px 20px;
+        background-image: -webkit-linear-gradient(top, rgba(170,83,3, 0.1), rgba(170,83,3, 0.5));
+        background-image: -moz-linear-gradient(top, rgba(170,83,3, 0.1), rgba(170,83,3, 0.5));
+        background-image: -ms-linear-gradient(top, rgba(170,83,3, 0.1), rgba(170,83,3, 0.5));
+        background-image: -o-linear-gradient(top, rgba(170,83,3, 0.1), rgba(170,83,3, 0.5));
+        background-image: linear-gradient(top, rgba(170,83,3, 0.1), rgba(170,83,3, 0.5));
+        border-radius: 5px;
+      }
+
+      /* A bit of custom styling on example 3 */
+      #example-3-form.dirty, #example-4-form.dirty {
+        box-shadow: 0 0 8px rgba(255, 0, 0, 1);
+        -webkit-box-shadow: 0 0 8px rgba(255, 0, 0, 1); 
+        -moz-box-shadow: 0 0 8px rgba(255, 0, 0, 1);
+        border:1px solid rgba(255,0,0, 0.8);
+      }
+
+      form h2 {
+        font-size: 22px;
+      }
+
+      form > div {
+        padding: 8px;
+        font-size: 12px;
+      }
+      form > div input[type="text"],
+      form > div input[type="color"],
+      form > div input[type="date"],
+      form > div input[type="datetime"],
+      form > div input[type="datetime-local"],
+      form > div input[type="email"],
+      form > div input[type="month"],
+      form > div input[type="number"],
+      form > div input[type="range"],
+      form > div input[type="search"],
+      form > div input[type="tel"],
+      form > div input[type="time"],
+      form > div input[type="url"],
+      form > div input[type="week"],
+      form > div input:not([type]),
+      form > div textarea,
+      form > div select,
+      form > div button {
+        float: right;
+        width: 200px;
+      }
+      
+      form > div  input[type="radio"],
+      form > div  input[type="checkbox"] {
+        display: inline-block;
+        margin-left: 130px;
+      }
+
+      form > div input[type="submit"] {
+        float: right;
+      }
+      form > div.buttons {
+        clear: both;
+        padding-bottom: 20px;
+      }
+    </style>
+</head>
+    
+    <form id="example-1-form" name="coffeeOrder1" method="post">
+      <h2>Enter Your Coffee Order</h2>
+      <div>
+        <label for="example-1-coffee">Coffee</label>
+        <select name="coffee" id="example-1-coffee">
+          <option value="espresso">Espresso</option>
+          <option value="dbl-espresso">Caffe Doppio</option>
+          <option value="latte">Caffe Latte</option>
+          <option value="macciato">Machhiato</option>
+          <option value="cappuccino">Cappuccino</option>
+        </select>
+      </div>
+      <div>
+        <label>Shots</label><br />
+        <input type="radio" name="shots" value="1" checked /> 1 Shot - Standard<br />
+        <input type="radio" name="shots" value="2" /> 2 Shots - Morning wakeup!<br />
+        <input type="radio" name="shots" value="3" /> 3 Shots - Overdrive!<br />
+      </div>
+      <div>
+        <label for="example-1-sugar">Sugar</label> <input type="text" name="sugar" value="0" id="example-1-sugar" />
+      </div>
+      <div>
+        <label for="example-1-instructions">Special Instructions</label>
+        <textarea name="instructions" rows="5" id="example-1-instructions"></textarea>
+      </div>
+
+      <div class="buttons">
+        <input type="checkbox" name="remember" value="true" /> Remember my order<br />
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </div>
+      <div>
+        <p>... or visit <a href="http://www.google.com/">Google</a> or close the window without saving!</p>
+      </div>
+    </form>
+</body>
+</html>
